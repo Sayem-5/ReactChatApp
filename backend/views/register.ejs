@@ -1,0 +1,29 @@
+<% layout('layout/boilerplate') %>
+
+<div class="bg-magenta-050 flex min-h-screen justify-center items-center px-16 filter backdrop-blur-md">
+    <div class="p-5 bg-white w-[30rem] h-[33rem] flex flex-col justify-center items-center rounded-l-lg">
+        <h1 class="text-4xl w-52 py-2 px-3 text-center font-poppins tracking-wider subpixel-antialiased font-normal text-white bg-gradient-to-tr to-orange-vivid-500 from-magenta-500 rounded-lg mt-16">ChitChat</h1>
+        <object data="/assets/register.svg" type="" class="w-[30rem] pb-5"></object>
+    </div>
+    <div class="p-5 bg-white h-[33rem] space-y-5 flex filter backdrop-blur-xl flex-col">
+        <div class="mt-5 text-center w-72 px-4 py-3 rounded-lg">
+            <h1 class="text-3xl font-poppins subpixel-antialiased font-normal text-transparent bg-clip-text bg-gradient-to-tr  from-orange-vivid-500 to-magenta-800">Welcome!</h1>
+        </div>
+        <div class="w-full pt-4 font-roboto">
+           <form action="/user/register" method="POST" class="w-full flex flex-col">
+            <label for="username" class="text-sm font-medium text-gray-600 tracking-wide">Username </label>
+            <input type="text" name="username" id="username" required placeholder="Username" class="w-full border-gray-300 focus:ring-1 focus:ring-orange-vivid-500 focus:border-orange-vivid-300 focus:outline-none rounded-lg shadow-sm">
+            <label for="email" class="mt-2 text-sm font-medium text-gray-600 tracking-wide">Email </label>
+            <input type="email" name="email" id="email" required placeholder="Email" class="w-full border-gray-300 focus:ring-1 focus:ring-orange-vivid-500 focus:border-orange-vivid-300 focus:outline-none rounded-lg shadow-sm">
+            <label for="password" class="mt-2 text-sm font-medium text-gray-600 tracking-wide">Password </label>
+            <input type="text" name="password" id="password" required placeholder="Password" class="w-full border-gray-300 focus:ring-1 focus:ring-orange-vivid-500 focus:border-orange-vivid-300 focus:outline-none rounded-lg shadow-sm">
+        
+            <div class="text-center">
+                <button type="submit" class="mt-5 w-[80%] shadow-sm bg-orange-vivid-500 subpixel-antialiased hover:bg-orange-vivid-400 text-white py-2 px-3 rounded-lg transition-all ease-in duration-75 hover:scale-[102%] hover:shadow-lg">Sign Up</button>
+            </div>
+            
+            </form> 
+        </div>
+        
+    </div>
+</div>

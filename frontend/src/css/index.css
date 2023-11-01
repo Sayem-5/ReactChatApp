@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+::-webkit-scrollbar {
+    /* Customize the scrollbar width */
+    height: 6px!important;
+    width: 6px!important;
+    background: rgba(255,255,255,.0);
+}
+
+::-webkit-scrollbar-track {
+    /* Customize the scrollbar track */
+    height: 6px!important;
+    width: 6px!important;
+    background: rgba(255,255,255,.0);
+}
+
+::-webkit-scrollbar-thumb {
+    height: 6px!important;
+    width: 6px!important;
+    /* Customize the scrollbar thumb */
+    background: rgba(255,255,255,.05);
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');

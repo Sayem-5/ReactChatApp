@@ -1,0 +1,156 @@
+<% layout('layout/boilerplate') %>
+    
+  <div class="ml-16">
+    <h1> <%= success %> </h1>
+    <h1>You are <%= msg %></h1>
+
+    <% for(user of users){ %>
+      <ul><a href="/chat/<%= user._id %>"><%= user.username %></a></ul>
+    <% } %>
+
+    <h1>Your Chats</h1>
+
+    <% for (chat of chats) { %>
+      <ul>
+        <% for (participant of chat.participants) { %>
+          <% if (participant._id.toString() !== currentUser._id.toString()) { %>
+            <a href="/chat/<%= chat._id %>"><%= participant.username %></a>
+          <% } %>
+        <% } %>
+      </ul>
+    <% } %>
+    
+    <h1>Your Friends</h1>
+
+    <% for(friend of friends){ %>
+      <ul><%= friend.friendId.username %></ul>
+    <% } %>
+
+    <a href="user/search">Search</a>
+
+    <a href="/group/new">Create a Group</a>
+
+    <a href="/group">Groups</a>
+
+    <a href="/chat/new">Chats</a>
+    
+  </div>
+  <div class="ml-16 h-screen flex justify-center">
+    <div class="w-[90%]">
+      <div class="mt-9">
+        <h1 class="font-poppins text-4xl tracking-wide text-gray-500">Chats</h1>
+      </div>
+      <div class="w-full h-[35rem]">
+        <ul class="flex flex-col w-full">
+          <div class="mt-10 ml-0 w-[60rem] flex flex-col font-roboto space-y-2">
+            <li class="py-5 px-4 border rounded-sm border-gray-200 shadow-sm flex flex-row w-full">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-14 h-14 fill-gray-300">
+                <path fill-rule="evenodd" d="M18.685 19.097A9.723 9.723 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 003.065 7.097A9.716 9.716 0 0012 21.75a9.716 9.716 0 006.685-2.653zm-12.54-1.285A7.486 7.486 0 0112 15a7.486 7.486 0 015.855 2.812A8.224 8.224 0 0112 20.25a8.224 8.224 0 01-5.855-2.438zM15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" clip-rule="evenodd" />
+              </svg>              
+              <div class="">
+                <p class="mt-2 font-medium text-gray-500 text-sm px-2">Ahmed</p>
+                <p class="mt-1.5 font-medium text-gray-500 text-xs px-2">Hi</p>
+              </div>
+              <div class="flex flex-row w-full justify-end">
+                <div class="flex flex-row justify-center items-center space-x-4">
+                  <div class="px-1 py-1 bg-green-vivid-100 rounded-md group">
+                    <a href="" class="">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-green-vivid-400 fill-green-vivid-050 backdrop-blur-3xl">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z" />
+                      </svg>                          
+                    </a>
+                    <span class="absolute px-1 py-[2px] bg-green-vivid-050 font-medium scale-0 text-[0.68rem] origin-top transition-all duration-200 rounded-md tracking-wide mt-2.5 -ml-1 text-green-vivid-600 group-hover:scale-100">Chat</span>
+                  </div>
+                  <div class="px-1 py-1 bg-red-vivid-100 rounded-md group">
+                    <a href="" class="">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 fill-red-vivid-400 backdrop-blur-3xl">
+                        <path fill-rule="evenodd" d="M16.5 4.478v.227a48.816 48.816 0 013.878.512.75.75 0 11-.256 1.478l-.209-.035-1.005 13.07a3 3 0 01-2.991 2.77H8.084a3 3 0 01-2.991-2.77L4.087 6.66l-.209.035a.75.75 0 01-.256-1.478A48.567 48.567 0 017.5 4.705v-.227c0-1.564 1.213-2.9 2.816-2.951a52.662 52.662 0 013.369 0c1.603.051 2.815 1.387 2.815 2.951zm-6.136-1.452a51.196 51.196 0 013.273 0C14.39 3.05 15 3.684 15 4.478v.113a49.488 49.488 0 00-6 0v-.113c0-.794.609-1.428 1.364-1.452zm-.355 5.945a.75.75 0 10-1.5.058l.347 9a.75.75 0 101.499-.058l-.346-9zm5.48.058a.75.75 0 10-1.498-.058l-.347 9a.75.75 0 001.5.058l.345-9z" clip-rule="evenodd" />
+                      </svg>
+                    </a>
+                    <span class="absolute px-1 py-[2px] bg-red-vivid-050 font-medium scale-0 text-[0.68rem] origin-top transition-all duration-200 rounded-md tracking-wide mt-2.5 -ml-2 text-red-vivid-600 group-hover:scale-100">Delete</span>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="py-5 px-4 border rounded-sm border-gray-200 shadow-sm flex flex-row w-full">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-14 h-14 fill-gray-300">
+                <path fill-rule="evenodd" d="M18.685 19.097A9.723 9.723 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 003.065 7.097A9.716 9.716 0 0012 21.75a9.716 9.716 0 006.685-2.653zm-12.54-1.285A7.486 7.486 0 0112 15a7.486 7.486 0 015.855 2.812A8.224 8.224 0 0112 20.25a8.224 8.224 0 01-5.855-2.438zM15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" clip-rule="evenodd" />
+              </svg>              
+              <div class="">
+                <p class="mt-2 font-medium text-gray-500 text-sm px-2">Ahmed</p>
+                <p class="mt-1.5 font-medium text-gray-500 text-xs px-2">Hi</p>
+              </div>
+              <div class="flex flex-row w-full justify-end">
+                <div class="flex flex-row justify-center items-center space-x-4">
+                  <div class="px-1 py-1 bg-green-vivid-100 rounded-md group">
+                    <a href="" class="">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-green-vivid-400 fill-green-vivid-050 backdrop-blur-3xl">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z" />
+                      </svg>                          
+                    </a>
+                    <span class="absolute px-1 py-[2px] bg-green-vivid-050 font-medium scale-0 text-[0.68rem] origin-top transition-all duration-200 rounded-md tracking-wide mt-2.5 -ml-1 text-green-vivid-600 group-hover:scale-100">Chat</span>
+                  </div>
+                  <div class="px-1 py-1 bg-red-vivid-100 rounded-md group">
+                    <a href="" class="">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 fill-red-vivid-400 backdrop-blur-3xl">
+                        <path fill-rule="evenodd" d="M16.5 4.478v.227a48.816 48.816 0 013.878.512.75.75 0 11-.256 1.478l-.209-.035-1.005 13.07a3 3 0 01-2.991 2.77H8.084a3 3 0 01-2.991-2.77L4.087 6.66l-.209.035a.75.75 0 01-.256-1.478A48.567 48.567 0 017.5 4.705v-.227c0-1.564 1.213-2.9 2.816-2.951a52.662 52.662 0 013.369 0c1.603.051 2.815 1.387 2.815 2.951zm-6.136-1.452a51.196 51.196 0 013.273 0C14.39 3.05 15 3.684 15 4.478v.113a49.488 49.488 0 00-6 0v-.113c0-.794.609-1.428 1.364-1.452zm-.355 5.945a.75.75 0 10-1.5.058l.347 9a.75.75 0 101.499-.058l-.346-9zm5.48.058a.75.75 0 10-1.498-.058l-.347 9a.75.75 0 001.5.058l.345-9z" clip-rule="evenodd" />
+                      </svg>
+                    </a>
+                    <span class="absolute px-1 py-[2px] bg-red-vivid-050 font-medium scale-0 text-[0.68rem] origin-top transition-all duration-200 rounded-md tracking-wide mt-2.5 -ml-2 text-red-vivid-600 group-hover:scale-100">Delete</span>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </div>
+        </ul>
+      </div>
+    </div>
+  </div>
+<!--<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chat Website</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Welcome to the Chat Website</h1>
+
+    <div id="chat-box">
+      <ul id="messages"></ul>
+    </div>
+
+    <form id="chat-form">
+      <input id="message-input" autocomplete="off" />
+      <button>Send</button>
+    </form>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      const socket = io();
+
+      // Handle form submission
+      const form = document.getElementById('chat-form');
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const input = document.getElementById('message-input');
+        const message = input.value.trim();
+        if (message !== '') {
+          socket.emit('chat message', message);
+          input.value = '';
+        }
+      });
+
+      // Handle incoming messages
+      const messages = document.getElementById('messages');
+      socket.on('chat message', (msg) => {
+        const li = document.createElement('li');
+        li.textContent = msg;
+        messages.appendChild(li);
+      });
+    </script>
+  </body>
+</html>-->
