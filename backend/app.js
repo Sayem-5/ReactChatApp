@@ -36,7 +36,7 @@ const usersRouter = require('./routes/users');
 
 //npx tailwindcss -i ./public/css/input.css -o ./public/css/tailwind.css --watch
 
-app.use(cors());
+app.use(cors({ origin: 'https://chat-app-ui-gcsq.onrender.com' }));
 
 const port = 4000;
 
