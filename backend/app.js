@@ -21,8 +21,7 @@ const catchAsync = require('./utils/catchAsync');
 const Chat = require('./models/chat');
 const methodOver = require('method-override');
 const cors = require('cors');
-//const dbUrl = process.env.DB_CONNECT;
-const dbUrl = 'mongodb://127.0.0.1:27017/chatApp';
+const dbUrl = process.env.DB_CONNECT;
 //const Friend = require('./models/friend');n
 //'mongodb://127.0.0.1:27017/chatApp'
 const mongoSanitize = require('express-mongo-sanitize');
