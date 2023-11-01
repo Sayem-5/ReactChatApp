@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "setup-backend": "cd backend && npm install",
+    "start-backend": "cd backend && node app.js",
+    "setup-frontend": "cd frontend && npm install",
+    "build-frontend": "cd frontend && npm run build",
+    "start-frontend": "cd frontend && npm run start"
   },
   "author": "",
   "license": "ISC"
