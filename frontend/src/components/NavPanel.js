@@ -110,7 +110,12 @@ const NavPanel = () => {
 
     const fetchChats = async() => {
 
-        const response = await fetch('https://chat-app-p7p1.onrender.com/chat');
+        const response = await fetch('https://chat-app-p7p1.onrender.com/chat', 
+        {
+            method: 'GET',
+            credentials: 'include',
+            headers: { "Content-Type": "application/json" }
+        });
         console.log(response);
 
         if(response.url.includes("/user/login")){

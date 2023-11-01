@@ -35,7 +35,11 @@ const usersRouter = require('./routes/users');
 
 //npx tailwindcss -i ./public/css/input.css -o ./public/css/tailwind.css --watch
 
-app.use(cors({ origin: 'https://chat-app-ui-gcsq.onrender.com' }));
+app.use(cors({ 
+    origin: 'https://chat-app-ui-gcsq.onrender.com',
+    credentials:  true,
+ }));
+app.set("trust proxy",1);
 
 const port = 4000;
 
@@ -66,7 +70,8 @@ app.use(session({
     saveUninitialized: true,
     cookie: {
         httpOnly: true,
-        //secure: true,
+        sameSite: 'none',
+        secure: true,
         //expires: Date.now() + 1000 * 60 * 60 * 24,
         maxAge: 1000 * 60 * 15 
     },
