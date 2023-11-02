@@ -357,7 +357,7 @@ const NavPanel = () => {
             const formData = new FormData();
             formData.append('profilePicture', file);
       
-            fetch('user/profile', {
+            fetch('https://chat-app-p7p1.onrender.com/user/profile', {
               method: 'POST',
               credentials: 'include',
               body: formData,
