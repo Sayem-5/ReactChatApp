@@ -62,7 +62,7 @@ const GroupView = (prop) => {
 
     const scrollToMessage = () => {
 
-        divRef.current.scrollIntoView({
+        divRef.current?.scrollIntoView({
             behavior: 'smooth'
         });
 
