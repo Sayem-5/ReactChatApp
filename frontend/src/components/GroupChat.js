@@ -23,7 +23,7 @@ const GroupChat = (prop) => {
             </div>
             <div className="flex flex-col justify-center overflow-hidden w-full h-full space-y-[2px]">
                 <div className="text-md flex flex-row justify-between items-center">
-                    <p className="tracking-wide">{group.name}</p>
+                    <p className="tracking-wide">{ group && group.name}</p>
                     <p className="text-xs text-[#8696a0]">{ lastMessage == "none" ? "" : convertTo12HourFormat(lastMessage.time)}</p>
                 </div>
                 {lastMessage == "none" ? 
