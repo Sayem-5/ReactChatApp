@@ -102,6 +102,41 @@ const GroupView = (prop) => {
         }
     }, [newMessages])
 
+    const fetchGroupChat = async() => {
+
+        console.log("In Group Fetch", getGroupData);
+        //no need to use await
+        try{
+            const data = await fetch(`https://chat-app-p7p1.onrender.com/group/${groupId}`, 
+            {
+                method: 'GET',
+                credentials: 'include',
+                headers: { "Content-Type": "application/json" }
+            }).then(res => res.json())
+            .then(data => {
+                //setComponentData(data.group, data.messages, data.group.participants);
+                setGroup(data.group);
+                setMessages(data.groupMessages);
+                setParticipants(data.group.users);
+                setGroupIcon(data.group.icon);
+                console.log("Users:___________________________- ", data.group.users);
+
+                addColorToParticipants(data.group.users)
+                    .then((participantsWithColor) => {
+                        setColors4Participants(participantsWithColor);
+                        console.log(participantsWithColor);
+                    })
+                    .catch((error) => {
+                        console.error(`Error: ${error}`);
+                    });
+
+            });
+        }catch(error){
+            console.log("Fetch Error: ", error);
+        }
+
+    }
+
     useEffect(() => {
 
         setNewMessages([]);
@@ -109,41 +144,6 @@ const GroupView = (prop) => {
         setGroupInfo(false);
 
         console.log("In Group Effect", getGroupData);
-
-        const fetchGroupChat = async() => {
-
-            console.log("In Group Fetch", getGroupData);
-            //no need to use await
-            try{
-                const data = await fetch(`https://chat-app-p7p1.onrender.com/group/${groupId}`, 
-                {
-                    method: 'GET',
-                    credentials: 'include',
-                    headers: { "Content-Type": "application/json" }
-                }).then(res => res.json())
-                .then(data => {
-                    //setComponentData(data.group, data.messages, data.group.participants);
-                    setGroup(data.group);
-                    setMessages(data.groupMessages);
-                    setParticipants(data.group.users);
-                    setGroupIcon(data.group.icon);
-                    console.log("Users:___________________________- ", data.group.users);
-
-                    addColorToParticipants(data.group.users)
-                        .then((participantsWithColor) => {
-                            setColors4Participants(participantsWithColor);
-                            console.log(participantsWithColor);
-                        })
-                        .catch((error) => {
-                            console.error(`Error: ${error}`);
-                        });
-
-                });
-            }catch(error){
-                console.log("Fetch Error: ", error);
-            }
-    
-        }
 
         if(getGroupData === true){
 
