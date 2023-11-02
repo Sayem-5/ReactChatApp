@@ -86,7 +86,12 @@ const ChatView = (prop) => {
 
         console.log("In fetchhhhhhhhhhhhhhh", getData);
 
-        const data = await fetch(`/chat/${chatId}`)
+        const data = await fetch(`https://chat-app-p7p1.onrender.com/chat/${chatId}` , 
+        {
+            method: 'GET',
+            credentials: 'include',
+            headers: { "Content-Type": "application/json" }
+        })
         .then(res => res.json())
         .then(data => {
             //setComponentData(data.chat, data.messages, data.chat.participants);

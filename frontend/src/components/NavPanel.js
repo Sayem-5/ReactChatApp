@@ -145,7 +145,12 @@ const NavPanel = () => {
 
     const fetchGroupChats =  async() => {
 
-        const response = await fetch('/group');
+        const response = await fetch('https://chat-app-p7p1.onrender.com/group', 
+        {
+            method: 'GET',
+            credentials: 'include',
+            headers: { "Content-Type": "application/json" }
+        });
         console.log(response);
 
         if(response.url.includes("/user/login")){
@@ -174,8 +179,9 @@ const NavPanel = () => {
         console.log("Friend", friend._id, "CurrentUser", currentUser.username)
     
         try {
-          const response = await fetch('/friend/add', {
+          const response = await fetch('https://chat-app-p7p1.onrender.com/friend/add', {
               method: 'POST',
+              credentials: 'include',
               headers: {
                   'Content-Type': 'application/json'
               },
@@ -230,8 +236,9 @@ const NavPanel = () => {
         }
 
         try{
-            const response = await fetch('/chat/new', {
+            const response = await fetch('https://chat-app-p7p1.onrender.com/chat/new', {
                 method: 'POST',
+                credentials: 'include',
                 headers: {
                     'Content-Type': 'application/json'
                 },
@@ -310,8 +317,9 @@ const NavPanel = () => {
         const name = groupName.current.value;
 
         try{
-            const response = await fetch('/group/new', {
+            const response = await fetch('https://chat-app-p7p1.onrender.com/group/new', {
                 method: 'POST',
+                credentials: 'include',
                 headers: {
                     'Content-Type': 'application/json'
                 },
@@ -351,6 +359,7 @@ const NavPanel = () => {
       
             fetch('user/profile', {
               method: 'POST',
+              credentials: 'include',
               body: formData,
             })
               .then((response) => {

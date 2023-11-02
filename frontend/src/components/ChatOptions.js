@@ -18,8 +18,9 @@ function ChatOptions(prop) {
     const data = { addUser: friend._id }
 
     try {
-      const response = await fetch('/friend/add', {
+      const response = await fetch('https://chat-app-p7p1.onrender.com/friend/add', {
           method: 'POST',
+          credentials: 'include',
           headers: {
               'Content-Type': 'application/json'
           },
@@ -46,8 +47,9 @@ function ChatOptions(prop) {
     const data = { removeUser: friend._id }
 
     try {
-      const response = await fetch('/friend/remove', {
+      const response = await fetch('https://chat-app-p7p1.onrender.com/friend/remove', {
           method: 'DELETE',
+          credentials: 'include',
           headers: {
               'Content-Type': 'application/json'
           },
@@ -75,8 +77,9 @@ function ChatOptions(prop) {
     
     try {
     
-      const response = await fetch('/friend/block', {
+      const response = await fetch('https://chat-app-p7p1.onrender.com/friend/block', {
           method: 'POST',
+          credentials: 'include',
           headers: {
               'Content-Type': 'application/json'
           },
@@ -106,8 +109,9 @@ function ChatOptions(prop) {
 
     try {
 
-      const response = await fetch('/chat/delete', {
+      const response = await fetch('https://chat-app-p7p1.onrender.com/chat/delete', {
           method: 'DELETE',
+          credentials: 'include',
           headers: {
               'Content-Type': 'application/json'
           },

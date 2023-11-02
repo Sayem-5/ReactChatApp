@@ -14,8 +14,9 @@ function UserOptions(prop) {
 
     try {
 
-      const response = await fetch('/user/logout', {
+      const response = await fetch('https://chat-app-p7p1.onrender.com/user/logout', {
           method: 'POST',
+          credentials: 'include',
           headers: {
               'Content-Type': 'application/json'
           }

@@ -13,8 +13,9 @@ function GroupOptions(prop) {
 
     try {
 
-      const response = await fetch('/group/delete', {
+      const response = await fetch('https://chat-app-p7p1.onrender.com/group/delete', {
           method: 'DELETE',
+          credentials: 'include',
           headers: {
               'Content-Type': 'application/json'
           },

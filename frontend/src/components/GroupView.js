@@ -112,8 +112,12 @@ const GroupView = (prop) => {
             console.log("In Group Fetch", getGroupData);
             //no need to use await
             try{
-                const data = await fetch(`/group/${groupId}`)
-                .then(res => res.json())
+                const data = await fetch(`https://chat-app-p7p1.onrender.com/group/${groupId}`, 
+                {
+                    method: 'GET',
+                    credentials: 'include',
+                    headers: { "Content-Type": "application/json" }
+                }).then(res => res.json())
                 .then(data => {
                     //setComponentData(data.group, data.messages, data.group.participants);
                     setGroup(data.group);
@@ -182,8 +186,9 @@ const GroupView = (prop) => {
             formData.append('groupIcon', file);
             formData.append('groupId', group._id);
       
-            fetch('group/icon', {
+            fetch('https://chat-app-p7p1.onrender.com/group/icon', {
               method: 'POST',
+              credentials: 'include',
               body: formData,
             })
               .then((response) => {
