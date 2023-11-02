@@ -201,6 +201,8 @@ const GroupView = (prop) => {
                   setFile(null);
                   setFileSize(null);
                   setImgSubmit(false);
+                  updateData();
+                  fetchGroupChat();
 
                 } else {
                   // Handle errors
