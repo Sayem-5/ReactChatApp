@@ -94,6 +94,9 @@ const GroupView = (prop) => {
       };
 
     useEffect(() => {
+
+        setShowGroup(true);
+
         if(newMessages.length > 0){
             scrollToMessage();
         }
