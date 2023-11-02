@@ -5,7 +5,7 @@ const Chat = (prop) => {
     const { chat, messages, currentUser } = prop;
     //console.log("User: ", currentUser);
     const lastMessage = messages[messages.length - 1];
-    const otherUser = chat.participants[1];
+    const otherUser = chat.participants.find( participant => participant._id.toString() !== currentUser._id.toString() );
 
     //Time to 12hrs
     function convertTo12HourFormat(time24hr) {
