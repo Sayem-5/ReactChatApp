@@ -19,6 +19,7 @@ const GroupChat = (prop) => {
 
         <div className="chat w-full px-5 font-open text-[#d1d7db] flex flex-row h-full items-center border-t border-[#8696a026]">
             <div className="pr-4">
+                { group && console.log(group.name)}
                 <GroupIcon iconUrl={groupIcon} width={52} height={44} />
             </div>
             <div className="flex flex-col justify-center overflow-hidden w-full h-full space-y-[2px]">
