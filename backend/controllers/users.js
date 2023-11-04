@@ -68,7 +68,7 @@ module.exports.uploadProfilePicture = async(req, res) => {
 
     if(url !== null || undefined){
 
-        const user = await User.findOneAndUpdate({ _id: req.user._id }, { profilePicture: url }, { new: true, overwrite: true });
+        const user = await User.findOneAndUpdate({ _id: req.user._id }, { $set: { profilePicture: url } }, { new: true});
 
         console.log("File Upload Successful");
     

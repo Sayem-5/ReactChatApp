@@ -101,7 +101,7 @@ module.exports.uploadGroupIcon = async(req, res) => {
 
     if(url !== null || undefined){
 
-        const group = await Group.findOneAndUpdate({ _id: groupId }, { icon: url }, { new: true, overwrite: true });
+        const group = await Group.findOneAndUpdate({ _id: groupId }, { $set: { icon: url } }, { new: true });
 
         console.log("File Upload Successful");
     
