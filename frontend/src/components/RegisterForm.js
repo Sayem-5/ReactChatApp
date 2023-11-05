@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 function RegisterForm() {
 
     const navigate = useNavigate();
+    const [ userExists, setUserExists ] = useState(false);
 
     const [formData, setFormData] = useState({
         username: '',
@@ -26,10 +27,7 @@ function RegisterForm() {
                 body: JSON.stringify(formData)
             });
 
-            console.log(response.status);
-
             const json = await response.json();
-            console.log(json);
 
             if (json.newUser != null) {
                 // Authentication successful, handle accordingly
@@ -41,7 +39,11 @@ function RegisterForm() {
 
                 navigateToHome();
 
-            } else {
+            }else if(response.status == 409){
+                setUserExists(true);
+                console.log("User Already Exists");
+            }
+             else{
                 // Authentication failed, handle accordingly
                 console.log('Reisteration failed');
             }
@@ -68,7 +70,12 @@ function RegisterForm() {
                     <form method="POST" onSubmit={handleSubmit} className='flex flex-col space-y-8'>
 
                         <input name="username" type="text" placeholder="Username" onChange={handleInputChange} className="px-4 py-3 bg-[#2a3942] border border-[#2a3942] rounded-lg w-full focus:ring-0 focus:outline-none focus:border-[#2a3942] placeholder-[#8696a0] caret-[#8696a0] text-[#d1d7db]" />
-                        <input name="email" type="email" placeholder="Email" onChange={handleInputChange} className="px-4 py-3 bg-[#2a3942] border border-[#2a3942] rounded-lg w-full focus:ring-0 focus:outline-none focus:border-[#2a3942] placeholder-[#8696a0] caret-[#8696a0] text-[#d1d7db]" />
+                        
+                        <div>
+                            <input name="email" type="email" placeholder="Email" onChange={handleInputChange} className="px-4 py-3 bg-[#2a3942] border border-[#2a3942] rounded-lg w-full focus:ring-0 focus:outline-none focus:border-[#2a3942] placeholder-[#8696a0] caret-[#8696a0] text-[#d1d7db]" />
+                            { userExists && <p className='w-96 text-center text-sm absolute mt-1 text-red-vivid-500 font-normal tracking-wide'> This email is already in use, please use a different email. </p> }
+                        </div>
+
                         <input name="password" type="password" placeholder="Password" onChange={handleInputChange} className="px-4 py-3 bg-[#2a3942] border border-[#2a3942] rounded-lg w-full focus:ring-0 focus:outline-none focus:border-[#2a3942] placeholder-[#8696a0] caret-[#8696a0] text-[#d1d7db]" />
                         
                         <button type="submit" className='bg-[#00a884] rounded-full px-3 py-3 w-44 place-self-center text-base text-[#111b21] font-medium tracking-wide'>Register</button>
