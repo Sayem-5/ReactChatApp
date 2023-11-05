@@ -19,6 +19,7 @@ function RegisterForm() {
         try {
             const response = await fetch('https://chat-app-p7p1.onrender.com/user/register', {
                 method: 'POST',
+                credentials:'include',
                 headers: {
                     'Content-Type': 'application/json'
                 },
