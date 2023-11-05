@@ -27,6 +27,7 @@ function RegisterForm() {
             });
 
             const json = await response.json();
+            console.log(json);
 
             if (json.newUser != null) {
                 // Authentication successful, handle accordingly

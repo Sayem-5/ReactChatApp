@@ -7,15 +7,21 @@ module.exports.renderRegister = (req, res) => {
 module.exports.createUser = async(req, res, next) =>{
     console.log(req.body);
     const { username, password, email } = req.body;
-    const user = new User({ email, username });
-    const newUser = await User.register(user, password);
-    //const createFriendList = new Friend({ user: user._id });
-    //await createFriendList.save();
-    req.login(newUser, err => {
-        if(err) return next(err);
-        console.log("New User: ", newUser);
-        res.json({ newUser });
-    });
+    const userExists = await User.findOne({ email: email });
+    if(userExists == null || undefined){
+        const user = new User({ email, username });
+        const newUser = await User.register(user, password);
+        //const createFriendList = new Friend({ user: user._id });
+        //await createFriendList.save();
+        req.login(newUser, err => {
+            if(err) return next(err);
+            console.log("New User: ", newUser);
+            res.json({ newUser });
+        });
+    }else{
+        res.status(409).json({ message: "User Already Exists" });
+    }
+    
 
 };
 
@@ -36,7 +42,7 @@ module.exports.userLogin = async(req, res) =>{
     if(currentUser != null){
         res.json({currentUser});
     }else{
-        res.status(500).json({ message: "Hi" });
+        res.status(500).json({ message: "Success" });
     }
 
    
