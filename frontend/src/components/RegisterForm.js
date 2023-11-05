@@ -26,7 +26,7 @@ function RegisterForm() {
                 body: JSON.stringify(formData)
             });
 
-            console.log(response);
+            console.log(response.status);
 
             const json = await response.json();
             console.log(json);
