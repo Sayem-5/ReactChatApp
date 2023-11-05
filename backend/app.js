@@ -118,7 +118,7 @@ app.use('/friend', friendsRouter);
 
 
 app.use((req, res) => {
-    res.send('Not Found');
+    res.send('You are connected! Please visit the https://chat-app-ui-gcsq.onrender.com/');
 });
 
 io.on("connection", (socket) => {
