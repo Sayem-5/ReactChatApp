@@ -98,7 +98,12 @@ const NavPanel = () => {
         // const usersArray = allUsers.map(user => user._id);
         // console.log(usersArray);
 
-        const result = allUsers.filter(user => user.username.toLowerCase().includes(search.toLowerCase()) && user.username.toLowerCase() !== currentUser.username.toLowerCase());
+        // const result = allUsers.filter(user => user.username.toLowerCase().includes(search.toLowerCase()) && user.username.toLowerCase() !== currentUser.username.toLowerCase());
+        const result = allUsers.filter(user => 
+            user.username && currentUser.username && // Check if username properties exist
+            user.username.toLowerCase().includes(search.toLowerCase()) && 
+            user.username.toLowerCase() !== currentUser.username.toLowerCase()
+            );
         console.log();
         setFriendsFound(result);
 
