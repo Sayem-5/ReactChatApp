@@ -121,6 +121,9 @@ const GroupView = (prop) => {
                 setGroupIcon(data.group.icon);
                 console.log("Users:___________________________- ", data.group.users);
 
+                socket.emit('JoinRoom', groupId);
+                console.log("Joined Group!");
+
                 addColorToParticipants(data.group.users)
                     .then((participantsWithColor) => {
                         setColors4Participants(participantsWithColor);
