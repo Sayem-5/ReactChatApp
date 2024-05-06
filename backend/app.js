@@ -209,6 +209,19 @@ io.on("connection", (socket) => {
         console.log('RoomJoined');
     });
 
+    //JoinRoom Emit
+    socket.on('JoinRoom', (roomId) => {
+        // Join the specified room
+        socket.join(roomId);
+        console.log(`User ${socket.id} joined room ${roomId}`);
+
+        // Store the room membership
+        /*if (!roomMemberships.has(roomId)) {
+            roomMemberships.set(roomId, new Set());
+        }
+        roomMemberships.get(roomId).add(socket.id);*/
+    });
+
     socket.on('group chat message', catchAsync(async(messageData) => {
 
         console.log("Socket.id:", socket.id);
