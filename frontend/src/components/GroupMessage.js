@@ -27,7 +27,7 @@ const GroupMessage = (prop) => {
         (
             <div className="message inline-flex pl-[25px] mb-3.5 font-open">
                 <div className="bg-[#202c33] flex flex-col pl-[9px] pr-[7px] pb-[4px] pt-[5.5px] rounded-[9.67px] w-auto max-w-[45%]">  
-                    {  message.sender?._id.toString() === prevMessageSender._id?.toString() ? (
+                    {  message.sender?._id.toString() === prevMessageSender && prevMessageSender._id.toString() ? (
                         <div className="hidden"></div>
                     ) : (
                         <div className={`text-[12.8px] text-[#e9edef] flex flex-row items-center font-semibold tracking-wider`}>
