@@ -11,7 +11,7 @@ const GroupMessage = (prop) => {
     }
 
     return(
-        message && message.sender._id.toString() === currentUser._id.toString() ? 
+        message && currentUser && message.sender._id.toString() === currentUser._id.toString() ? 
         (
         <div className="message inline-flex pr-[20px] mb-3.5 font-open justify-end">
             <div className="bg-[#005c4b] flex flex-col pl-[9px] pr-[7px] pb-[4px] pt-[5.5px] rounded-[9.67px] w-auto max-w-[45%]">
