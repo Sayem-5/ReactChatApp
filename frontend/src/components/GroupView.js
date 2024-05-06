@@ -300,7 +300,8 @@ const GroupView = (prop) => {
                             message={message} 
                             currentUser={currentUser} 
                             prevMessageSender={index > 0 ? newMessages[index - 1].sender : null}
-                            senderColor={colors4Participants && colors4Participants.find(participant => participant._id.toString() == message.sender._id.toString())}
+                            senderColor={colors4Participants && colors4Participants.find(participant => participant._id.toString() === (message.sender && message.sender._id.toString()))}
+                            //senderColor={colors4Participants && colors4Participants.find(participant => participant._id.toString() == message.sender._id.toString())}
                         />
                     ))}
                     <div className='w-0 h-0' ref={divRef}></div>
