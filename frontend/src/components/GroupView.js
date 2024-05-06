@@ -183,7 +183,7 @@ const GroupView = (prop) => {
     }, [getGroupData]);
 
     //JoinRoom
-    useEffect(() => {
+    /*useEffect(() => {
         // Emit event to join the room when the component mounts
         socket.emit('JoinRoom', groupId);
         // Clean up the event listener when the component unmounts
@@ -191,7 +191,7 @@ const GroupView = (prop) => {
             socket.emit('leaveRoom', groupId);
             console.log("LeftRoom")
         };
-    }, [groupId]);
+    }, [groupId]);*/
 
     const uploadFile = async() => {
 
