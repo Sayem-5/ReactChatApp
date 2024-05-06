@@ -33,7 +33,7 @@ const GroupMessage = (prop) => {
                         <div className={`text-[12.8px] text-[#e9edef] flex flex-row items-center font-semibold tracking-wider`}>
                             {/* <div className="bg-transparent border border-[#e9edef] mr-[2px] h-[6px] w-[6px] rounded-full"></div> */}
                             <div style={senderColor ? { 'color' : senderColor.color } : {}}>
-                                { message && message.sender ? message.sender.username : '' }
+                                {message.sender?.username}
                             </div>
                         </div>
                     )}
