@@ -26,8 +26,8 @@ const GroupMessage = (prop) => {
         ) :
         (
             <div className="message inline-flex pl-[25px] mb-3.5 font-open">
-            { message && prevMessageSender ? <div className="bg-[#202c33] flex flex-col pl-[9px] pr-[7px] pb-[4px] pt-[5.5px] rounded-[9.67px] w-auto max-w-[45%]">  
-                    { message.sender._id.toString() === prevMessageSender._id.toString() ? (
+            <div className="bg-[#202c33] flex flex-col pl-[9px] pr-[7px] pb-[4px] pt-[5.5px] rounded-[9.67px] w-auto max-w-[45%]">  
+                    { message.sender?._id?.toString() === prevMessageSender?._id?.toString() ? (
                         <div className="hidden"></div>
                     ) : (
                         <div className={`text-[12.8px] text-[#e9edef] flex flex-row items-center font-semibold tracking-wider`}>
@@ -44,7 +44,7 @@ const GroupMessage = (prop) => {
                         <span className="float-right text-[0.6875rem] text-[#ffffff99]">{convertTo12HourFormat(message.time)}</span>
                     </div>
                 </div>
-            </div> : 'Error' }
+            </div>
         )
     )
 
